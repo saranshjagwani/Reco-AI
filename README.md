@@ -51,71 +51,25 @@
 ## 🚀 **Getting Started**
 ### 🔹 **Clone the Repository**
 ```bash
-git clone https://github.com/saranshjagwani/RecoAI.git
-cd RecoAI
+- git clone https://github.com/saranshjagwani/RecoAI.git
+- cd RecoAI
 
-<h2>🔹 Setup the Backend</h2>
+# RecoAI 🎙️🤖  **
 
-<h3>📦 Install dependencies:</h3>
-<pre>
-<code>
+RecoAI is an AI-powered transcription service that converts speech to text in real-time or from uploaded audio files. It also allows users to save, manage, and chat with their transcripts using Botpress AI.
+
+---
+
+## 🔹 Setup the Backend
+
+### 📦 Install dependencies:
+```sh
 cd server
 npm install
-</code>
-</pre>
 
-<h3>⚙️ Create a <code>.env</code> file in <code>server</code> and add:</h3>
-<pre>
-<code>
-SUPABASE_URL=your-supabase-url
-SUPABASE_ANON_KEY=your-supabase-anon-key
-ASSEMBLYAI_API_KEY=your-api-key
-</code>
-</pre>
-
-<h3>🚀 Run the server:</h3>
-<pre>
-<code>
-npm start
-</code>
-</pre>
-<p>The server will start at <a href="http://localhost:5000">http://localhost:5000</a>.</p>
-
----
-
-<h2>🔹 Setup the Frontend</h2>
-
-<h3>📦 Install dependencies:</h3>
-<pre>
-<code>
-cd client
-npm install
-</code>
-</pre>
-
-<h3>⚙️ Create a <code>.env</code> file in <code>client</code> and add:</h3>
-<pre>
-<code>
-VITE_SUPABASE_URL=your-supabase-url
-VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
-</code>
-</pre>
-
-<h3>🚀 Start the frontend:</h3>
-<pre>
-<code>
-npm run dev
-</code>
-</pre>
-<p>The frontend will be available at <a href="http://localhost:5173">http://localhost:5173</a>.</p>
-
----
-
-<h2>🎯 Usage</h2>
-<ul>
-  <li>🔑 <strong>Login/Signup</strong> to access transcripts.</li>
-  <li>🎙️ <strong>Use Live Transcribe</strong> to convert speech to text.</li>
-  <li>🎤 <strong>Upload an audio file</strong> for AI-powered transcription.</li>
-  <li>💾 <strong>Save & Manage</strong> transcriptions in your dashboard.</li>
-  <li>🤖 <strong>Chat with your transcripts</strong> via Botpress AI.</li>
-</ul>
+## Usage
+- 🔑 Login/Signup to access transcripts.
+-🎙️ Use Live Transcribe to convert speech to text.
+-🎤 Upload an audio file for AI-powered transcription.
+-💾 Save & Manage transcriptions in your dashboard.
+-🤖 Chat with your transcripts via Botpress AI. **
