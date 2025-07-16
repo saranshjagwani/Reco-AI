@@ -1,40 +1,41 @@
-import { Routes, Route } from "react-router-dom";
-import './App.css';
-import Navbar from './Items/Navbar';
-import VoiceRecorder from './Blocks/Recorder';
-import TranscriptList from './pages/TranscriptList';
-import TranscriptDetail from "./pages/TranscriptDetail";
-import AudioUploader from "./Blocks/AudioUploader";
-import Signup from "./auth/Signup";
-import Login from "./auth/Login";
-import ForgotPassword from "./auth/ForgotPassword";
-import ProtectedResetPasswordFlow from "./auth/ResetPassword";
-import ProtectedRoute from "./auth/ProtectedRoutes";
-import AboutUs from "./pages/AboutUs";
+import React, { useEffect, useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom'; // ✅ Only these are needed
+import axios from 'axios';
 
+import LeaderboardPage from './pages/LeaderBoardPage';
+import AddUserPage from './pages/AddUserPage';
+import HistoryPage from './pages/HistoryPage';
+import Navbar from './components/Navbar';
 
-function App() {
+export default function App() {
+  const [users, setUsers] = useState([]);
+
+  const fetchUsers = async () => {
+    try {
+      const res = await axios.get('http://localhost:5000/api/users');
+      const sorted = res.data.sort((a, b) => b.points - a.points);
+      setUsers(sorted);
+    } catch (err) {
+      console.error("Error fetching users", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   return (
-    <>
-      <Navbar />
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password" element={<ProtectedResetPasswordFlow />} />
-
-        {/* Protected Routes */}
-        <Route element={<ProtectedRoute />}>
-          <Route path="/" element={<VoiceRecorder />} />
-          <Route path="/texts" element={<TranscriptList />} />
-          <Route path="texts/:id" element={<TranscriptDetail />} />
-          <Route path="/upload" element={<AudioUploader />} />
-          <Route path="/about" element={<AboutUs />} />
-        </Route>
-      </Routes>
-    </>
+    <div>
+ <Navbar/>
+      <main className="p-4">
+        
+        <Routes>
+          <Route path="/" element={<LeaderboardPage />} />
+          <Route path="/add-user" element={<AddUserPage />} />
+          <Route path="/history" element={<HistoryPage />} />
+        </Routes>
+      </main>
+     
+    </div>
   );
 }
-
-export default App;

@@ -1,11 +1,11 @@
 {
-    "compilerOptions": {
-      "baseUrl": ".",
-      "paths": {
-        "@/components/*": ["src/components/*"],
-        "@/lib/*": ["src/lib/*"]
-      }
-    },
-    "include": ["src", "supabaseClient.js"]
-  }
-  
+  "compilerOptions": {
+    "baseUrl": "src",               // treat /src as the project root
+    "paths": {
+      "@/*": ["*"],                 // "@/Something" → "src/Something"
+      "@/components/*": ["components/*"],
+      "@/lib/*": ["lib/*"]
+    }
+  },
+  "include": ["src"]                // <-- no trailing comma
+}
